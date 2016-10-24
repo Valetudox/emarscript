@@ -1,0 +1,39 @@
+{
+  "name": "emarscript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "mocha --require ts-node/register source/{**/*,*}.spec.ts",
+    "prepublish": "typings install && npm test && npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "release": {
+    "verifyConditions": {
+      "path": "./node_modules/semantic-release/dist/lib/plugin-noop.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valetudox/emarscript.git"
+  },
+  "author": "Viktor Somodi <viktor.somodi@emarsys.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Valetudox/emarscript/issues"
+  },
+  "homepage": "https://github.com/Valetudox/emarscript#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "3.1.2",
+    "ts-node": "1.6.0",
+    "typescript": "2.0.3",
+    "semantic-release": "4.3.5",
+    "rimraf": "2.5.4"
+  },
+  "dependencies": {
+    "twig": "0.9.5"
+  }
+}
